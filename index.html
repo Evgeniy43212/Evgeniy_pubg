@@ -1,17 +1,156 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Социальные сети</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    min-height: 100vh;
+    padding: 20px;
+    color: #fff;
+  }
+
+  h1 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .card {
+    background: linear-gradient(135deg, #89f7fe, #66a6ff);
+    border-radius: 15px;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1s forwards;
+  }
+
+  /* Разные цвета для карточек через псевдоэлементы или классы */
+  .card:nth-child(2) {
+    background: linear-gradient(135deg, #f7971e, #ffd200);
+  }
+  .card:nth-child(3) {
+    background: linear-gradient(135deg, #f953c6, #b91d73);
+  }
+  .card:nth-child(4) {
+    background: linear-gradient(135deg, #00c3ff, #ffff1c);
+  }
+  .card:nth-child(5) {
+    background: linear-gradient(135deg, #30cfd0, #330867);
+  }
+
+  /* Анимация появления карточек */
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Эффект при наведении */
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  a {
+    display: block;
+    color: #fff;
+    font-size: 1.2em;
+    text-decoration: none;
+    margin-top: 10px;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Адаптивность для мобильных устройств */
+  @media(max-width: 600px) {
+    body {
+      padding: 10px;
+    }
+    h1 {
+      font-size: 2em;
+    }
+    .card {
+      width: 100%;
+      padding: 15px;
+    }
+  }
+</style>
 </head>
 <body>
- <h1>HTML</h1>
- <h2>htt</h2>
- <h3>HTML</h3>
- <h4>HTML</h4>
- <h5>HTML</h5>
+
+<h1>Мои соцсети</h1>
+<div class="links">
+  <div class="card">
+    <h2>Instagram</h2>
+    <a href="https://www.instagram.com/boero_va?igsh=ODdiYWI5ODlrdW9x&utm_source=qr" target="_blank">Перейти</a>
+  </div>
+  <div class="card">
+    <h2>VK</h2>
+    <a href="https://vk.com/yaroslavavava" target="_blank">Перейти</a>
+  </div>
+  <div class="card">
+    <h2>Telegram</h2>
+    <a href="https://t.me/boerovYa" target="_blank">Перейти</a>
+  </div>
+  <div class="card">
+    <h2>TikTok</h2>
+    <a href="https://www.tiktok.com/@yasyablyablya?_t=ZS-90atxaRmYAa&_r=1" target="_blank">Перейти</a>
+  </div>
+  <div class="card">
+    <h2>Likee</h2>
+    <a href="https://l.likee.video/p/Cyj04g" target="_blank">Перейти</a>
+  </div>
+</div>
+
+<script>
+  // Скрипт для анимации появления карточек при прокрутке (если хотите)
+  // Можно оставить или убрать, если эффект уже есть через CSS
+  const cards = document.querySelectorAll('.card');
+
+  const options = {
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver(function(entries, observer) {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.style.animationPlayState = 'running';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, options);
+
+  // Изначально задержка для анимации появления
+  cards.forEach(card => {
+    card.style.animationPlayState = 'paused';
+    observer.observe(card);
+  });
+</script>
+
 </body>
 </html>
-<a href="http://www.Likee.com">Тони</a> [4](https://otvet.mail.ru/question/238484209)
-<img class="thumbnail" decoding="async" src="blob:https://web.telegram.org/228b7df3-3111-42d4-9f32-c5824549f9fd">
